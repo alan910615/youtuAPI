@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.1.0/video-js.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    <script src="../js/svedio.js"></script>
+    <script src="../js/vedio.js"></script>
+
+    
+</head>
+<body>
+    <header>
+        <a href="../index.html"><img src="../icon/home-page.svg" class="home"></a>
+
+    </header>
+
+    <main>
+        <div class="container">
+            <video id=my-video class="video-js vjs-default-skin vjs-big-play-centered" controls>
+                <source     
+                    src="https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8"
+                    type="application/x-mpegURL">
+            </video>
+            <div class="ad">
+                <img src="../icon/close_icon_black.png" class="close">
+            </div>
+        </div>
+
+        <h1 id="title"></h2>
+        <p id="Content"></p>
+    </main>
+
+</body>
+</html>

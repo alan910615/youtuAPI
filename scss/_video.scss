@@ -1,0 +1,108 @@
+header {
+	width: 100%;
+	height: 50px;
+	// border: 1px solid rgb(226, 0, 0);
+	position: sticky;
+	top: 0px;
+	background-color: #6dc7e2;
+	z-index: 100;
+
+	a {
+		.home {
+			height: 75%;
+			font-size: 40px;
+			line-height: 50px;
+			margin-left: 10px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	div.searchBar {
+		display: inline-block;
+		vertical-align: top;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%)translateX(-50%);
+
+		input {
+			vertical-align: top;
+			height: 30px;
+			border: 1px solid;
+			box-sizing: border-box;
+		}
+		div {
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			vertical-align: top;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+	}
+}
+
+main {
+	background-color: antiquewhite;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: calc(100vh - 50px);
+	display: block;
+	padding: 20px;
+	overflow-y: auto;
+
+	div.container {
+		width: 100%;
+		height: 60vh;
+		position: relative;
+
+		.my-video-dimensions {
+			width: 75%;
+			height: 100%;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+
+			div.contentMenu {
+				display: none;
+			}
+		}
+
+		.ad {
+			display: none;
+			width: 75%;
+			height: 100%;
+			min-width: 100%;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			background-image: url("../icon/YOUTUBEad.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			.close {
+				position: absolute;
+				top: 2%;
+				right: 2%;
+				width: 50px;
+				cursor: pointer;
+			}
+		}
+		.on {
+			display: block;
+		}
+	}
+
+	h1 {
+		margin: 20px;
+		font-size: 22px;
+	}
+	p {
+		font-size: 14px;
+		line-height: 24px;
+		padding: 0px 35px;
+	}
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube API 串接</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header id="header">
+        <a href=""><img src="/icon/home-page.svg" class="home"></a>
+        <div class="searchBar">
+            <input type="text" class="searchVal">
+            <div @click="search"><img src="/icon/magnifying-glass.svg"  class="search" width="90%" height="90%"></div>
+        </div>
+    </header>
+    <main class="main">
+        <ul class="videoUL">
+            <li-component   v-for="(video,index) in videos.slice(pages.start,pages.end)" :my-title="video.title" :my-time="video.time" :my-img="video.imgURL" :my-content="video.description" :my-id="video.videoId" :my-ftitle="video.Fulltitle" :my-fdescription="video.Fulldescription"></li-component>
+        </ul>
+        <ul class="pageBar">
+            <li @click="changePage" class="addBgc">1</li>
+            <li @click="changePage">2</li>
+            <li @click="changePage">3</li>
+            <li @click="changePage">4</li>
+            <li @click="changePage">5</li>
+            <li @click="changePage">6</li>
+            <li @click="changePage">7</li>
+            <li @click="changePage">8</li>
+        </ul>
+
+        <div class="saveBtn">
+            <div class="grayBlock off" @click="grayBlockOff"></div>
+            <div class="saveCase" >
+                <span @click="addOn">收藏</span>
+                <ul class="saveUl">
+                    
+                </ul>
+            </div>
+        </div>
+    </main>
+
+<script src="/js/index.js"></script>
+</body>
+</html>
