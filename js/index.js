@@ -140,7 +140,7 @@ $(document).ready(function(){
                                             <img src="${src}">
                                             <h3>${title}</h3>
                                         </div>
-                                        <img src="/icon/close_icon_black.png" class="closeIcon" @click="removeSaveVedio">
+                                        <img src="./icon/close_icon_black.png" class="closeIcon" @click="removeSaveVedio">
                                         <input type="hidden"  class="saveID" value="${id}">
                                     </li>
                                 ` ;
