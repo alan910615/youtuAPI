@@ -178,7 +178,7 @@ $(document).ready(function(){
                                             <img src="${src}">
                                             <h3>${title}</h3>
                                         </div>
-                                        <img src="/icon/close_icon_black.png" class="closeIcon">
+                                        <img src="./icon/close_icon_black.png" class="closeIcon">
                                         <input type="hidden"  class="saveID" value="${id}">
                                     </li>
                                 ` ;
@@ -244,7 +244,7 @@ $(document).ready(function(){
                                     <img src="${src}">
                                     <h3>${title}</h3>
                                 </div>
-                                <img src="/icon/close_icon_black.png" class="closeIcon" >
+                                <img src="./icon/close_icon_black.png" class="closeIcon" >
                                 <input type="hidden"  class="saveID" value="${id}">
                             </li>
                         ` ;
@@ -292,14 +292,14 @@ $(document).ready(function(){
                     var Content = e.target.parentElement.querySelector('input.myFdescription').value;
                     var arr = [title,Content];
                     localStorage.setItem('Content', JSON.stringify(arr));
-                    var url = `/html/viedo.html`;
+                    var url = `./html/viedo.html`;
                     window.location.href = url;
                 }else if(e.target.classList.contains("videoTitle")){
                     var title = e.target.parentElement.querySelector('input.myFtitle').value;
                     var Content = e.target.parentElement.querySelector('input.myFdescription').value;
                     var arr = [title,Content];
                     localStorage.setItem('Content', JSON.stringify(arr));
-                    var url = `/html/viedo.html`;
+                    var url = `./html/viedo.html`;
                     window.location.href = url;
                 }
 
