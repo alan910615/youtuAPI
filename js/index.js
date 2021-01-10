@@ -82,10 +82,9 @@ $(document).ready(function(){
                 e.target.classList.add('off');
                 $('div.saveCase').toggleClass('on');
             },
-            addOn(e){
+            addOn(){
                 $('div.saveCase').toggleClass('on');
                 $('div.grayBlock').toggleClass('off');
-
             },
             
 
@@ -135,7 +134,6 @@ $(document).ready(function(){
                                 var title = saveVedio[i].title.slice(0,30) + '...';
                                 var FullTitle = saveVedio[i].title;
                                 var FullContent = saveVedio[i].Content;
-
 
                                 var saveVideo = `
                                     <li>
@@ -195,12 +193,7 @@ $(document).ready(function(){
                             }
                             $('ul.saveUl').html(Video);
                         }
-                        
                     },
-                    
-                },
-                beforeDestroy(){
-                    
                 },
                 updated(){//裡面主要即時更新頁面收藏狀態
                     var vidiosArr = JSON.parse(localStorage.getItem('vidios'));
@@ -238,7 +231,6 @@ $(document).ready(function(){
                     };
                     
 
-
                     var saveVedio = JSON.parse(localStorage.getItem('vidios'));
                     var Video = "";
                     for(let i=0 ;i < saveVedio.length; i++){//放入收藏欄
@@ -248,7 +240,6 @@ $(document).ready(function(){
                         var FullTitle = saveVedio[i].title;
                         var FullContent = saveVedio[i].Content;
                         
-
                         var saveVideo = `
                         <li>
                             <div class="imgBlock">
@@ -330,8 +321,6 @@ $(document).ready(function(){
                     var url = `./html/viedo.html`;
                     window.location.href = url;
                 }
-
-    
             })
         },
         created() {
@@ -343,7 +332,7 @@ $(document).ready(function(){
             var url =
             "https://www.googleapis.com/youtube/v3/search" +
             "?" +
-            "&key=AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU" +
+            "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
             "&part=snippet" +
             "&relevanceLanguage=zh-Hant" +
             "&regionCode=TW"+
@@ -371,7 +360,7 @@ $(document).ready(function(){
                         var url =
                             "https://www.googleapis.com/youtube/v3/search" +
                             "?" +
-                            "&key=AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU" +
+                            "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
                             "&part=snippet" +
                             "&relevanceLanguage=zh-Hant" +
                             "&regionCode=TW"+
@@ -399,8 +388,8 @@ $(document).ready(function(){
 
                                     //撈到的影片資料補上影片長度
                                     for(let i = 0; i < vm.videos.length;i++){
-                                        let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU`;
-                
+                                        let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g`;
+
                                         fetch( getLength, {method: 'get'})
                                         .then(function(response) {
                                             response.json().then(
@@ -441,7 +430,7 @@ $(document).ready(function(){
                     var url =
                     "https://www.googleapis.com/youtube/v3/search" +
                     "?" +
-                    "&key=AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU" +
+                    "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
                     "&part=snippet" +
                     "&relevanceLanguage=zh-Hant" +
                     "&regionCode=TW"+
@@ -469,7 +458,7 @@ $(document).ready(function(){
                                 var url =
                                     "https://www.googleapis.com/youtube/v3/search" +
                                     "?" +
-                                    "&key=AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU" +
+                                    "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
                                     "&part=snippet" +
                                     "&relevanceLanguage=zh-Hant" +
                                     "&regionCode=TW"+
@@ -498,7 +487,7 @@ $(document).ready(function(){
 
                                             //撈到的影片資料補上影片長度
                                             for(let i = 0; i < vm.videos.length;i++){
-                                                let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU`;
+                                                let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g`;
                         
                                                 fetch( getLength, {method: 'get'})
                                                 .then(function(response) {
@@ -518,12 +507,10 @@ $(document).ready(function(){
                                     console.log('error')
                                 });
                             }
-                            
                         )
                     }).catch(function(err) {
                         console.log('error')
                     });
-                    ///
                 }
             }
         },

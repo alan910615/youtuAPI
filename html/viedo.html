@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>影片播放頁</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://vjs.zencdn.net/7.1.0/video-js.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
     <script src="../js/svedio.js"></script>
     <script src="../js/vedio.js"></script>
-
-    
 </head>
 <body>
     <header>
@@ -19,7 +18,7 @@
 
     </header>
 
-    <main>
+    <main id='main'>
         <div class="container">
             <video id=my-video class="video-js vjs-default-skin vjs-big-play-centered" controls>
                 <source     
@@ -30,7 +29,6 @@
                 <img src="../icon/close_icon_black.png" class="close">
             </div>
         </div>
-
         <h1 id="title"></h2>
         <p id="Content"></p>
     </main>
