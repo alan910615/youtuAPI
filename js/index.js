@@ -316,7 +316,6 @@ $(document).ready(function(){
                     var url = `./html/viedo.html`;
                     window.location.href = url;
                 }else if(e.target.classList.contains("savedImg")){//點擊收藏的圖片
-                    // console.log('aaa');
                     var title = e.target.closest('li').querySelector('input.myFtitle').value;
                     var Content = e.target.closest('li').querySelector('input.myFdescription').value;
                     var arr = [title,Content];
@@ -433,8 +432,8 @@ $(document).ready(function(){
         data: {
             
         },
-        methods: {     
-            search(){
+        methods: {
+            search(){//搜尋
                 if($('input.searchVal').val() != ""){
                     var searchVal = $("input.searchVal").val();
                     $("input.searchVal").val("")
@@ -528,38 +527,15 @@ $(document).ready(function(){
                 }
             }
         },
+        mounted(){
+            $("#searchVal").keydown(function (even) {//監聽到按下Enter
+                if (even.which == 13) {
+                    vm1.search();
+                }
+            });
+        }
     });
 
-    // let vm2 = new Vue({
-    //     el: '#saveCase',     
-    //     data: {
-            
-    //     },
-    //     methods: {    
-
-    //     },
-    //     mounted(){
-    //         $(document).click(function(e){
-    //             if(e.target.classList.contains("savedImg")){//點擊收藏的圖片
-    //                 console.log('aaa');
-    //                 // var title = e.target.closest('li').querySelector('input.myFtitle').value;
-    //                 // var Content = e.target.closest('li').querySelector('input.myFdescription').value;
-    //                 // var arr = [title,Content];
-    //                 // localStorage.setItem('Content', JSON.stringify(arr));
-    //                 // var url = `./html/viedo.html`;
-    //                 // window.location.href = url;
-    //             }else if(e.target.classList.contains("savedTitle")){//點擊收藏的title
-    //                 // var title = e.target.closest('li').querySelector('input.myFtitle').value;
-    //                 // var Content = e.target.closest('li').querySelector('input.myFdescription').value;
-    //                 // var arr = [title,Content];
-    //                 // localStorage.setItem('Content', JSON.stringify(arr));
-    //                 // var url = `./html/viedo.html`;
-    //                 // window.location.href = url;
-    //             }
-    //         });
-    //     },
-    // });
-    
 });
 
 
