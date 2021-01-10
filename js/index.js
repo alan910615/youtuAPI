@@ -140,13 +140,13 @@ $(document).ready(function(){
                                 var saveVideo = `
                                     <li>
                                         <div class="imgBlock">
-                                            <img src="${src}" class="videoImg" >
-                                            <h3 class="videoTitle">${title}</h3>
+                                            <img src="${src}" class="savedImg" >
+                                            <h3 class="savedTitle">${title}</h3>
                                         </div>
                                         <img src="./icon/close_icon_black.png" class="closeIcon" @click="removeSaveVedio">
                                         <input type="hidden"  class="saveID" value="${id}">
-                                        <input type="hidden"  class="saveFullTitle" value="${FullTitle}">
-                                        <input type="hidden"  class="saveFullContent" value="${FullContent}">
+                                        <input type="hidden"  class="myFtitle" value="${FullTitle}">
+                                        <input type="hidden"  class="myFdescription" value="${FullContent}">
                                     </li>
                                 ` ;
                                 Video += saveVideo;
@@ -175,17 +175,21 @@ $(document).ready(function(){
                                 var id = saveVedio[i].id;
                                 var src = saveVedio[i].src;
                                 var title = saveVedio[i].title.slice(0,30) + '...';
+                                var FullTitle = saveVedio[i].title;
+                                var FullContent = saveVedio[i].Content;
                                 
 
                                 var saveVideo = `
-                                    <li>
-                                        <div class="imgBlock">
-                                            <img src="${src}">
-                                            <h3>${title}</h3>
-                                        </div>
-                                        <img src="./icon/close_icon_black.png" class="closeIcon">
-                                        <input type="hidden"  class="saveID" value="${id}">
-                                    </li>
+                                <li>
+                                    <div class="imgBlock">
+                                        <img src="${src}" class="savedImg" >
+                                        <h3 class="savedTitle">${title}</h3>
+                                    </div>
+                                    <img src="./icon/close_icon_black.png" class="closeIcon" @click="removeSaveVedio">
+                                    <input type="hidden"  class="saveID" value="${id}">
+                                    <input type="hidden"  class="myFtitle" value="${FullTitle}">
+                                    <input type="hidden"  class="myFdescription" value="${FullContent}">
+                                </li>
                                 ` ;
                                 Video += saveVideo;
                             }
@@ -241,17 +245,21 @@ $(document).ready(function(){
                         var id = saveVedio[i].id;
                         var src = saveVedio[i].src;
                         var title = saveVedio[i].title.slice(0,30) + '...';
+                        var FullTitle = saveVedio[i].title;
+                        var FullContent = saveVedio[i].Content;
                         
 
                         var saveVideo = `
-                            <li>
-                                <div class="imgBlock">
-                                    <img src="${src}">
-                                    <h3>${title}</h3>
-                                </div>
-                                <img src="./icon/close_icon_black.png" class="closeIcon" >
-                                <input type="hidden"  class="saveID" value="${id}">
-                            </li>
+                        <li>
+                            <div class="imgBlock">
+                                <img src="${src}" class="savedImg" >
+                                <h3 class="savedTitle">${title}</h3>
+                            </div>
+                            <img src="./icon/close_icon_black.png" class="closeIcon" @click="removeSaveVedio">
+                            <input type="hidden"  class="saveID" value="${id}">
+                            <input type="hidden"  class="myFtitle" value="${FullTitle}">
+                            <input type="hidden"  class="myFdescription" value="${FullContent}">
+                        </li>
                         ` ;
                         Video += saveVideo;
                     }
@@ -273,6 +281,7 @@ $(document).ready(function(){
         },
         mounted() {
             $(document).click(function(e){
+                console.log(e.target);
                 if(e.target.classList.contains("closeIcon")){
                     var saveVideoID = e.target.nextElementSibling.value;
                     var videos = document.getElementsByClassName('videoLi');
@@ -302,6 +311,21 @@ $(document).ready(function(){
                 }else if(e.target.classList.contains("videoTitle")){
                     var title = e.target.parentElement.querySelector('input.myFtitle').value;
                     var Content = e.target.parentElement.querySelector('input.myFdescription').value;
+                    var arr = [title,Content];
+                    localStorage.setItem('Content', JSON.stringify(arr));
+                    var url = `./html/viedo.html`;
+                    window.location.href = url;
+                }else if(e.target.classList.contains("savedImg")){//點擊收藏的圖片
+                    // console.log('aaa');
+                    var title = e.target.closest('li').querySelector('input.myFtitle').value;
+                    var Content = e.target.closest('li').querySelector('input.myFdescription').value;
+                    var arr = [title,Content];
+                    localStorage.setItem('Content', JSON.stringify(arr));
+                    var url = `./html/viedo.html`;
+                    window.location.href = url;
+                }else if(e.target.classList.contains("savedTitle")){//點擊收藏的title
+                    var title = e.target.closest('li').querySelector('input.myFtitle').value;
+                    var Content = e.target.closest('li').querySelector('input.myFdescription').value;
                     var arr = [title,Content];
                     localStorage.setItem('Content', JSON.stringify(arr));
                     var url = `./html/viedo.html`;
@@ -505,6 +529,36 @@ $(document).ready(function(){
             }
         },
     });
+
+    // let vm2 = new Vue({
+    //     el: '#saveCase',     
+    //     data: {
+            
+    //     },
+    //     methods: {    
+
+    //     },
+    //     mounted(){
+    //         $(document).click(function(e){
+    //             if(e.target.classList.contains("savedImg")){//點擊收藏的圖片
+    //                 console.log('aaa');
+    //                 // var title = e.target.closest('li').querySelector('input.myFtitle').value;
+    //                 // var Content = e.target.closest('li').querySelector('input.myFdescription').value;
+    //                 // var arr = [title,Content];
+    //                 // localStorage.setItem('Content', JSON.stringify(arr));
+    //                 // var url = `./html/viedo.html`;
+    //                 // window.location.href = url;
+    //             }else if(e.target.classList.contains("savedTitle")){//點擊收藏的title
+    //                 // var title = e.target.closest('li').querySelector('input.myFtitle').value;
+    //                 // var Content = e.target.closest('li').querySelector('input.myFdescription').value;
+    //                 // var arr = [title,Content];
+    //                 // localStorage.setItem('Content', JSON.stringify(arr));
+    //                 // var url = `./html/viedo.html`;
+    //                 // window.location.href = url;
+    //             }
+    //         });
+    //     },
+    // });
     
 });
 
@@ -520,7 +574,5 @@ $(document).ready(function(){
 
 
 //AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU
-
-
 
 
