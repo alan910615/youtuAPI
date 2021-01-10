@@ -133,15 +133,20 @@ $(document).ready(function(){
                                 var id = saveVedio[i].id;
                                 var src = saveVedio[i].src;
                                 var title = saveVedio[i].title.slice(0,30) + '...';
+                                var FullTitle = saveVedio[i].title;
+                                var FullContent = saveVedio[i].Content;
+
 
                                 var saveVideo = `
                                     <li>
                                         <div class="imgBlock">
-                                            <img src="${src}">
-                                            <h3>${title}</h3>
+                                            <img src="${src}" class="videoImg" >
+                                            <h3 class="videoTitle">${title}</h3>
                                         </div>
                                         <img src="./icon/close_icon_black.png" class="closeIcon" @click="removeSaveVedio">
                                         <input type="hidden"  class="saveID" value="${id}">
+                                        <input type="hidden"  class="saveFullTitle" value="${FullTitle}">
+                                        <input type="hidden"  class="saveFullContent" value="${FullContent}">
                                     </li>
                                 ` ;
                                 Video += saveVideo;

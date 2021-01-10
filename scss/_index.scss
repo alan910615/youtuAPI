@@ -101,6 +101,7 @@ main {
 
 			img {
 				width: 100%;
+				cursor: pointer;
 			}
 			h3 {
 				display: inline-block;
@@ -110,6 +111,7 @@ main {
 				overflow: hidden;
 				padding: 5px;
 				line-height: 20px;
+				cursor: pointer;
 			}
 			p.videoContent {
 				font-size: 12px;
@@ -255,10 +257,12 @@ main {
 					padding-left: 10px;
 					img {
 						height: 100%;
+						cursor: pointer;
 					}
 					h3 {
 						margin-top: 5px;
 						line-height: 18px;
+						cursor: pointer;
 					}
 				}
 				img.closeIcon {

@@ -355,6 +355,7 @@ main ul.videoUL li {
 
 main ul.videoUL li img {
   width: 100%;
+  cursor: pointer;
 }
 
 main ul.videoUL li h3 {
@@ -364,6 +365,7 @@ main ul.videoUL li h3 {
   overflow: hidden;
   padding: 5px;
   line-height: 20px;
+  cursor: pointer;
 }
 
 main ul.videoUL li p.videoContent {
@@ -518,11 +520,13 @@ main .saveCase ul li div.imgBlock {
 
 main .saveCase ul li div.imgBlock img {
   height: 100%;
+  cursor: pointer;
 }
 
 main .saveCase ul li div.imgBlock h3 {
   margin-top: 5px;
   line-height: 18px;
+  cursor: pointer;
 }
 
 main .saveCase ul li img.closeIcon {
