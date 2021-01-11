@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var apiKey = 'AIzaSyDvuRYXUghs0i3BjrPopZbyqdKCc_ncgMU';
     let vm = new Vue({ 
         el: '.main',
         data: {
@@ -332,7 +333,7 @@ $(document).ready(function(){
             var url =
             "https://www.googleapis.com/youtube/v3/search" +
             "?" +
-            "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
+            `&key=${apiKey}` +
             "&part=snippet" +
             "&relevanceLanguage=zh-Hant" +
             "&regionCode=TW"+
@@ -360,7 +361,7 @@ $(document).ready(function(){
                         var url =
                             "https://www.googleapis.com/youtube/v3/search" +
                             "?" +
-                            "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
+                            `&key=${apiKey}` +
                             "&part=snippet" +
                             "&relevanceLanguage=zh-Hant" +
                             "&regionCode=TW"+
@@ -388,7 +389,7 @@ $(document).ready(function(){
 
                                     //撈到的影片資料補上影片長度
                                     for(let i = 0; i < vm.videos.length;i++){
-                                        let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g`;
+                                        let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=${apiKey}`;
 
                                         fetch( getLength, {method: 'get'})
                                         .then(function(response) {
@@ -430,7 +431,7 @@ $(document).ready(function(){
                     var url =
                     "https://www.googleapis.com/youtube/v3/search" +
                     "?" +
-                    "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
+                    `&key=${apiKey}` +
                     "&part=snippet" +
                     "&relevanceLanguage=zh-Hant" +
                     "&regionCode=TW"+
@@ -458,7 +459,7 @@ $(document).ready(function(){
                                 var url =
                                     "https://www.googleapis.com/youtube/v3/search" +
                                     "?" +
-                                    "&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g" +
+                                    `&key=${apiKey}` +
                                     "&part=snippet" +
                                     "&relevanceLanguage=zh-Hant" +
                                     "&regionCode=TW"+
@@ -487,7 +488,7 @@ $(document).ready(function(){
 
                                             //撈到的影片資料補上影片長度
                                             for(let i = 0; i < vm.videos.length;i++){
-                                                let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=AIzaSyDKpfJCOxrXRgVy09mtdpUuB13T2Vrgr5g`;
+                                                let getLength =`https://www.googleapis.com/youtube/v3/videos?id=${vm.videos[i].videoId}&part=contentDetails&key=${apiKey}`;
                         
                                                 fetch( getLength, {method: 'get'})
                                                 .then(function(response) {
